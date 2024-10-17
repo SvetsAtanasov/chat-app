@@ -1289,6 +1289,32 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
+"@fortawesome/fontawesome-common-types@6.6.0":
+  version "6.6.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/6.6.0/fontawesome-common-types-6.6.0.tgz#31ab07ca6a06358c5de4d295d4711b675006163f"
+  integrity sha512-xyX0X9mc0kyz9plIyryrRbl7ngsA9jz77mCZJsUkLl+ZKs0KWObgaEBoSgQiYWAsSmjz/yjl0F++Got0Mdp4Rw==
+
+"@fortawesome/fontawesome-svg-core@^6.6.0":
+  version "6.6.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/6.6.0/fontawesome-svg-core-6.6.0.tgz#2a24c32ef92136e98eae2ff334a27145188295ff"
+  integrity sha512-KHwPkCk6oRT4HADE7smhfsKudt9N/9lm6EJ5BVg0tD1yPA5hht837fB87F8pn15D8JfTqQOjhKTktwmLMiD7Kg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.6.0"
+
+"@fortawesome/free-solid-svg-icons@^6.6.0":
+  version "6.6.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/free-solid-svg-icons/-/6.6.0/free-solid-svg-icons-6.6.0.tgz#061751ca43be4c4d814f0adbda8f006164ec9f3b"
+  integrity sha512-IYv/2skhEDFc2WGUcqvFJkeK39Q+HyPf5GHUrT/l2pKbtgEIv1al1TKd6qStR5OIwQdN1GZP54ci3y4mroJWjA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.6.0"
+
+"@fortawesome/react-fontawesome@^0.2.2":
+  version "0.2.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/react-fontawesome/-/0.2.2/react-fontawesome-0.2.2.tgz#68b058f9132b46c8599875f6a636dad231af78d4"
+  integrity sha512-EnkrprPNqI6SXJl//m29hpaNzOp1bruISWaOiRtkMi/xSvHJlzc2j2JAYS7egxt/EbjSNV/k6Xy0AQI6vB2+1g==
+  dependencies:
+    prop-types "^15.8.1"
+
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.13.0.tgz#fb907624df3256d04b9aa2df50d7aa97ec648748"
@@ -1662,6 +1688,11 @@
     loader-utils "^2.0.4"
     schema-utils "^4.2.0"
     source-map "^0.7.3"
+
+"@remix-run/router@1.20.0":
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.20.0.tgz#03554155b45d8b529adf635b2f6ad1165d70d8b4"
+  integrity sha512-mUnk8rPJBI9loFDZ+YzPGdeniYK+FTmRD1TMCz7ev2SNIozyKKpnGgsxO34u6Z4z/t0ITuu7voi/AshfsGsgFg==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -7936,6 +7967,21 @@ react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
+
+react-router-dom@^6.27.0:
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.27.0.tgz#8d7972a425fd75f91c1e1ff67e47240c5752dc3f"
+  integrity sha512-+bvtFWMC0DgAFrfKXKG9Fc+BcXWRUO1aJIihbB79xaeq0v5UzfvnM5houGUm1Y461WVRcgAQ+Clh5rdb1eCx4g==
+  dependencies:
+    "@remix-run/router" "1.20.0"
+    react-router "6.27.0"
+
+react-router@6.27.0:
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.27.0.tgz#db292474926c814c996c0ff3ef0162d1f9f60ed4"
+  integrity sha512-YA+HGZXz4jaAkVoYBE98VQl+nVzI+cVI2Oj/06F5ZM+0u3TgedN9Y9kmMRo2mnkSK2nCpNQn0DVob4HCsY/WLw==
+  dependencies:
+    "@remix-run/router" "1.20.0"
 
 react-scripts@5.0.1:
   version "5.0.1"
