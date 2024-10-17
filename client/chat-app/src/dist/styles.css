@@ -4,6 +4,7 @@
   height: 100%;
   max-width: 133px;
   border-radius: 25px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -14,8 +15,15 @@
   margin-bottom: 24px;
   cursor: pointer;
 }
+.side-nav .nav-item svg {
+  padding: 10px 0;
+}
+.side-nav .nav-item svg:hover {
+  background-color: #431f92;
+}
 .side-nav .nav-item a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
   padding: 10px 0;
@@ -46,7 +54,10 @@
   margin-top: 24px;
 }
 .side-nav .nav-item:last-child {
-  margin: auto 0 24px;
+  margin: auto 0 20px;
+}
+.side-nav .nav-item:last-child svg {
+  border-radius: 0 0 25px 25px;
 }
 
 .box {
