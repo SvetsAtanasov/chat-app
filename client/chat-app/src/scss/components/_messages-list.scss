@@ -1,0 +1,11 @@
+.messages-list {
+  height: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+
+  .list {
+    overflow-y: auto;
+    height: calc(100% - 10px);
+    width: 100%;
+  }
+}

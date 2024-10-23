@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
-var bcrypt_1 = require("bcrypt");
+var bcrypt = require("bcrypt");
 var userSchema = new mongoose_1.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
@@ -47,7 +47,7 @@ userSchema.pre("save", function (next) {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
         return __generator(this, function (_a) {
-            bcrypt_1.default.hash(this.password, 10).then(function (val) {
+            bcrypt.hash(this.password, 10).then(function (val) {
                 _this.password = val;
             });
             next();

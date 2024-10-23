@@ -1,0 +1,15 @@
+.chat-top-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: -10px;
+    background-color: $soft-grayish-taupe;
+  }
+}
