@@ -2,7 +2,6 @@ import Avatar from "../../Avatar/Avatar";
 import Box from "../../Box/Box";
 
 const ChatTopBar = () => {
-  console.log("test");
   return (
     <div className="chat-top-bar">
       <Avatar />
