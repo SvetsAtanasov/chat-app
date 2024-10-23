@@ -9,7 +9,12 @@ function App() {
   return (
     <>
       <Router>
-        <Box className="wrapper">
+        <Box
+          height="calc(100vh - 40px)"
+          padding="20px"
+          flexDirection="row"
+          className="wrapper"
+        >
           <SideNav />
           <AppRouter />
         </Box>

@@ -1,6 +1,14 @@
 @import "./abstract/index.scss";
 @import "./components/side-nav";
-@import "./components/box";
+@import "./components/chat";
+@import "./components/input";
+@import "./components/avatar";
+@import "./components/chat-top-bar";
+@import "./components/messages-list";
+
+body {
+  background-color: $light-pastel-blue;
+}
 
 ul {
   margin: 0;
