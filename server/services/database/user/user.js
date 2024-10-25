@@ -36,40 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
-var authController_1 = require("./../../services/database/auth/authController");
-var authRouter = (0, express_1.Router)();
-authRouter.post("/register", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, repeatPassword, err_1;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _a = req.body, email = _a.email, password = _a.password, repeatPassword = _a.repeatPassword;
-                _b.label = 1;
-            case 1:
-                _b.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, (0, authController_1.register)(email, password, repeatPassword)];
-            case 2:
-                _b.sent();
-                res.status(200);
-                return [3 /*break*/, 4];
-            case 3:
-                err_1 = _b.sent();
-                res.status(err_1.status).json({ error: err_1.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
-        }
-    });
-}); });
-authRouter.post("/login", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password;
-    return __generator(this, function (_b) {
-        _a = req.body, email = _a.email, password = _a.password;
-        try {
-            res.status(200).json({ success: "Login successfull" });
-        }
-        catch (err) { }
-        return [2 /*return*/];
-    });
-}); });
-exports.default = authRouter;
+exports.findUser = void 0;
+var User_1 = require("../../../schemas/User");
+var findUser = function (email) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, User_1.UserModel.findOne({ email: email })];
+        case 1: return [2 /*return*/, _a.sent()];
+    }
+}); }); };
+exports.findUser = findUser;

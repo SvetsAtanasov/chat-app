@@ -15,4 +15,12 @@ authRouter.post("/register", async (req, res) => {
   }
 });
 
+authRouter.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    res.status(200).json({ success: "Login successfull" });
+  } catch (err: any) {}
+});
+
 export default authRouter;
