@@ -7,6 +7,7 @@ var mongoDb_1 = require("./services/database/mongoDb");
 var auth_1 = require("./routes/auth/auth");
 var app = express();
 app.use(cors());
+app.use(express.json());
 app.use(auth_1.default);
 var wsServer = new Websocket.WebSocket.Server({ port: 8080 });
 wsServer.on("connection", function (ws) {
@@ -16,6 +17,6 @@ wsServer.on("connection", function (ws) {
 });
 (0, mongoDb_1.default)().then(function () {
     return app.listen(8888, function () {
-        console.log("App running on port");
+        console.log("App running on port 8888");
     });
 });

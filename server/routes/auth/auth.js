@@ -37,7 +37,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
+var bcrypt = require("bcrypt");
 var authController_1 = require("./../../services/database/auth/authController");
+var user_1 = require("../../services/database/user/user");
 var authRouter = (0, express_1.Router)();
 authRouter.post("/register", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, email, password, repeatPassword, err_1;
@@ -51,7 +53,7 @@ authRouter.post("/register", function (req, res) { return __awaiter(void 0, void
                 return [4 /*yield*/, (0, authController_1.register)(email, password, repeatPassword)];
             case 2:
                 _b.sent();
-                res.status(200);
+                res.status(200).json({ success: "Registration successful" });
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _b.sent();
@@ -62,14 +64,34 @@ authRouter.post("/register", function (req, res) { return __awaiter(void 0, void
     });
 }); });
 authRouter.post("/login", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password;
+    var _a, email, password, user, isPasswordValid, err_2;
     return __generator(this, function (_b) {
-        _a = req.body, email = _a.email, password = _a.password;
-        try {
-            res.status(200).json({ success: "Login successfull" });
+        switch (_b.label) {
+            case 0:
+                _a = req.body, email = _a.email, password = _a.password;
+                _b.label = 1;
+            case 1:
+                _b.trys.push([1, 4, , 5]);
+                return [4 /*yield*/, (0, user_1.findUser)(email)];
+            case 2:
+                user = _b.sent();
+                if (!user) {
+                    throw new Error("Invalid Email");
+                }
+                return [4 /*yield*/, bcrypt.compare(password, user.password)];
+            case 3:
+                isPasswordValid = _b.sent();
+                if (!isPasswordValid) {
+                    throw new Error("Invalid Password");
+                }
+                res.status(200).json({ success: "Login successfull" });
+                return [3 /*break*/, 5];
+            case 4:
+                err_2 = _b.sent();
+                res.status(400).json({ error: err_2.message });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
-        catch (err) { }
-        return [2 /*return*/];
     });
 }); });
 exports.default = authRouter;

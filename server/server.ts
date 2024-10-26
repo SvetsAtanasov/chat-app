@@ -8,6 +8,7 @@ import authRouter from "./routes/auth/auth";
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 app.use(authRouter);
 
 const wsServer = new Websocket.WebSocket.Server({ port: 8080 });
@@ -20,6 +21,6 @@ wsServer.on("connection", (ws) => {
 
 initMongoDb().then(() =>
   app.listen(8888, () => {
-    console.log("App running on port");
+    console.log("App running on port 8888");
   })
 );
