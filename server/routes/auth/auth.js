@@ -38,8 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var bcrypt = require("bcrypt");
+var jsonwebtoken = require("jsonwebtoken");
+var dotenv = require("dotenv");
+var util = require("util");
 var authController_1 = require("./../../services/database/auth/authController");
 var user_1 = require("../../services/database/user/user");
+dotenv.config();
+var jwt = {
+    sign: util.promisify(jsonwebtoken.sign),
+    verify: util.promisify(jsonwebtoken.verify),
+};
 var authRouter = (0, express_1.Router)();
 authRouter.post("/register", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, email, password, repeatPassword, err_1;
@@ -64,14 +72,15 @@ authRouter.post("/register", function (req, res) { return __awaiter(void 0, void
     });
 }); });
 authRouter.post("/login", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, user, isPasswordValid, err_2;
+    var _a, email, password, user, isPasswordValid, jwtToken, err_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, email = _a.email, password = _a.password;
+                console.log(email);
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 4, , 5]);
+                _b.trys.push([1, 5, , 6]);
                 return [4 /*yield*/, (0, user_1.findUser)(email)];
             case 2:
                 user = _b.sent();
@@ -84,13 +93,18 @@ authRouter.post("/login", function (req, res) { return __awaiter(void 0, void 0,
                 if (!isPasswordValid) {
                     throw new Error("Invalid Password");
                 }
-                res.status(200).json({ success: "Login successfull" });
-                return [3 /*break*/, 5];
+                return [4 /*yield*/, jwt.sign({ email: email }, process.env.JWT_SECRET, {
+                        expiresIn: "1h",
+                    })];
             case 4:
+                jwtToken = _b.sent();
+                res.status(200).json({ jwtToken: jwtToken });
+                return [3 /*break*/, 6];
+            case 5:
                 err_2 = _b.sent();
                 res.status(400).json({ error: err_2.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); });

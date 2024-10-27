@@ -26,14 +26,15 @@ export const useAuth = () => {
 const AuthProvider = ({ children }: PropsWithChildren) => {
   const [token, setToken] = useState(false);
 
+  const handleStorageEvent = () => {
+    const isAuth = localStorage.getItem("token");
+    setToken(!!isAuth);
+  };
+
   useEffect(() => {
-    window.addEventListener("storage", () => {
-      const isAuth = !!localStorage.getItem("token");
+    window.addEventListener("storage", handleStorageEvent);
 
-      setToken(isAuth);
-    });
-
-    return;
+    return () => window.removeEventListener("storage", handleStorageEvent);
   }, []);
 
   const isAuth = useMemo(() => token, [token]);

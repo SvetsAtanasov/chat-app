@@ -19,5 +19,10 @@ export const login = async (email: string, password: string) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
+
+    const data = await res.json();
+
+    console.log(data.jwtToken);
+    localStorage.setItem("token", JSON.stringify(data.jwtToken));
   } catch (err: any) {}
 };
