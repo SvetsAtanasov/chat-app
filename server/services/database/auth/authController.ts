@@ -1,4 +1,7 @@
+import * as bcrypt from "bcrypt";
+
 import { UserModel } from "../../../schemas/User";
+import { findUser } from "../user/user";
 
 export const register = async (
   email: string,
@@ -16,4 +19,14 @@ export const register = async (
 
   const user = new UserModel({ email, password });
   await user.save();
+};
+
+export const login = async (email: string, password: string) => {
+  try {
+    const user = await findUser(email);
+
+    if (!user) {
+      throw new Error("No user found");
+    }
+  } catch (err: any) {}
 };

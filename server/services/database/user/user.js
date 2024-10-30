@@ -36,17 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var mongoose = require("mongoose");
-var initMongoDb = function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                mongoose.set("strictQuery", false);
-                return [4 /*yield*/, mongoose.connect("mongodb+srv://Svets:Atanasov%401@clusterprojects.rrcjl.mongodb.net/chatApp")];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
-exports.default = initMongoDb;
+exports.findUser = void 0;
+var User_1 = require("../../../schemas/User");
+var findUser = function (email) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, User_1.UserModel.findOne({ email: email })];
+        case 1: return [2 /*return*/, _a.sent()];
+    }
+}); }); };
+exports.findUser = findUser;

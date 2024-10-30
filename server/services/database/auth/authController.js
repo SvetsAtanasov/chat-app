@@ -36,8 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = void 0;
+exports.login = exports.register = void 0;
 var User_1 = require("../../../schemas/User");
+var user_1 = require("../user/user");
 var register = function (email, password, repeatPassword) { return __awaiter(void 0, void 0, void 0, function () {
     var emailRegExp, isEmailValid, user;
     return __generator(this, function (_a) {
@@ -58,3 +59,24 @@ var register = function (email, password, repeatPassword) { return __awaiter(voi
     });
 }); };
 exports.register = register;
+var login = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
+    var user, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, (0, user_1.findUser)(email)];
+            case 1:
+                user = _a.sent();
+                if (!user) {
+                    throw new Error("No user found");
+                }
+                return [3 /*break*/, 3];
+            case 2:
+                err_1 = _a.sent();
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.login = login;

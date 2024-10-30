@@ -116,6 +116,10 @@
   width: 100%;
 }
 
+.modal {
+  position: absolute;
+}
+
 body {
   background-color: #eff6fc;
 }
