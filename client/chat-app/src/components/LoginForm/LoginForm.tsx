@@ -1,10 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import Input from "../Input/Input";
-import { login } from "../../services/api";
 import Form from "../Form/Form";
+import { useAuth } from "../../context/AuthProvider/AuthProvider";
 
 const LoginForm = () => {
+  const { handleLogin } = useAuth();
+
   const [{ email, password }, setFormData] = useState<{
     email: string;
     password: string;
@@ -19,7 +21,7 @@ const LoginForm = () => {
   const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await login(email, password);
+    handleLogin(email, password);
   };
 
   return (

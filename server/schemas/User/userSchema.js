@@ -5,6 +5,7 @@ var bcrypt = require("bcrypt");
 var userSchema = new mongoose_1.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
+    avatar: { type: String },
 });
 userSchema.pre("save", function (next) {
     var _this = this;

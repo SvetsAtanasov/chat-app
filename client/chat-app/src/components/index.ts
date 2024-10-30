@@ -8,3 +8,4 @@ export { default as RegisterForm } from "./RegisterForm/RegisterForm";
 export { default as LoginForm } from "./LoginForm/LoginForm";
 export { default as PublicRoute } from "./PublicRoute/PublicRoute";
 export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+export { default as Page } from "./Page/Page";

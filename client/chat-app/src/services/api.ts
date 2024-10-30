@@ -1,3 +1,4 @@
+import { storeToken } from "./../utils/localStorage/localStorage";
 export const register = async (
   email: string,
   password: string,
@@ -22,7 +23,9 @@ export const login = async (email: string, password: string) => {
 
     const data = await res.json();
 
-    console.log(data.jwtToken);
-    localStorage.setItem("token", JSON.stringify(data.jwtToken));
+    storeToken(JSON.stringify(data.jwtToken));
+    window.dispatchEvent(new Event("storage-update"));
+
+    return data.jwtToken;
   } catch (err: any) {}
 };

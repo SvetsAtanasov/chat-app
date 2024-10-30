@@ -42,7 +42,7 @@ var initMongoDb = function () { return __awaiter(void 0, void 0, void 0, functio
         switch (_a.label) {
             case 0:
                 mongoose.set("strictQuery", false);
-                return [4 /*yield*/, mongoose.connect("mongodb://localhost:27017/chatApp")];
+                return [4 /*yield*/, mongoose.connect("mongodb+srv://Svets:Atanasov%401@clusterprojects.rrcjl.mongodb.net/chatApp")];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
