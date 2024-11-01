@@ -24,6 +24,7 @@ export const login = async (email: string, password: string) => {
     const data = await res.json();
 
     storeToken(JSON.stringify(data.jwtToken));
+    localStorage.setItem("email", JSON.stringify(data.email));
     window.dispatchEvent(new Event("storage-update"));
 
     return data.jwtToken;

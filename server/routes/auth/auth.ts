@@ -49,7 +49,7 @@ authRouter.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ jwtToken });
+    res.status(200).json({ email: user.email, jwtToken });
   } catch (err: any) {
     res.status(400).json({ error: err.message });
   }

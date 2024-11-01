@@ -47,6 +47,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const handleLogout = () => {
     removeToken();
+    window.dispatchEvent(new Event("storage-update"));
   };
 
   useEffect(() => {

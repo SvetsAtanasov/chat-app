@@ -8,5 +8,4 @@ export const getToken = () => {
 
 export const removeToken = () => {
   localStorage.removeItem("token");
-  window.dispatchEvent(new Event("storage-update"));
 };
