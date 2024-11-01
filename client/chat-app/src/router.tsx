@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 
 import { HomePage, LoginPage, RegisterPage } from "./pages";
 import MessagesPage from "./pages/HomePage/MessagesPage";
-import { ProtectedRoute, PublicRoute } from "./components";
+import { Chat, ProtectedRoute, PublicRoute } from "./components";
 
 const AppRouter = () => {
   const routes = useRoutes([
@@ -12,6 +12,10 @@ const AppRouter = () => {
     {
       path: "/messages",
       element: <ProtectedRoute element={<MessagesPage />} />,
+    },
+    {
+      path: "/messages/:chatId",
+      element: <ProtectedRoute element={<Chat />} />,
     },
   ]);
 

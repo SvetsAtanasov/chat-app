@@ -37,8 +37,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = exports.register = void 0;
-var User_1 = require("../../../schemas/User");
 var user_1 = require("../user/user");
+var schemas_1 = require("../../../schemas");
 var register = function (email, password, repeatPassword) { return __awaiter(void 0, void 0, void 0, function () {
     var emailRegExp, isEmailValid, user;
     return __generator(this, function (_a) {
@@ -50,7 +50,7 @@ var register = function (email, password, repeatPassword) { return __awaiter(voi
                 } // Throw Error
                 if (password && repeatPassword) {
                 } // Throw Error
-                user = new User_1.UserModel({ email: email, password: password });
+                user = new schemas_1.UserModel({ email: email, password: password });
                 return [4 /*yield*/, user.save()];
             case 1:
                 _a.sent();

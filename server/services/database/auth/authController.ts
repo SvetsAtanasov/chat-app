@@ -1,7 +1,7 @@
 import * as bcrypt from "bcrypt";
 
-import { UserModel } from "../../../schemas/User";
 import { findUser } from "../user/user";
+import { UserModel } from "../../../schemas";
 
 export const register = async (
   email: string,

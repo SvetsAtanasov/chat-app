@@ -36,12 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUser = void 0;
-var User_1 = require("../../../schemas/User");
+exports.findAllUsers = exports.findUser = void 0;
+var schemas_1 = require("../../../schemas");
 var findUser = function (email) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
     switch (_a.label) {
-        case 0: return [4 /*yield*/, User_1.UserModel.findOne({ email: email })];
+        case 0: return [4 /*yield*/, schemas_1.UserModel.findOne({ email: email })];
         case 1: return [2 /*return*/, _a.sent()];
     }
 }); }); };
 exports.findUser = findUser;
+var findAllUsers = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, schemas_1.UserModel.find({}).select("_id, email")];
+        case 1: return [2 /*return*/, _a.sent()];
+    }
+}); }); };
+exports.findAllUsers = findAllUsers;
