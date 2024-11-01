@@ -26,14 +26,15 @@ wsServer.on("connection", (ws) => {
   ws.send("Welcome to the WebSocket server!");
 
   ws.on("message", (message: string) => {
-    const { type, email } = JSON.parse(message);
+    const { type, email, targetEmail, text } = JSON.parse(message);
     console.log("Received:", message);
 
     if (type === "REGISTER") {
       clients[email] = ws;
     }
 
-    if (type === "PRIVATE_MESSAGE") {
+    if (type === "PRIVATE_MESSAGE" && email && targetEmail) {
+      ws.send(JSON.stringify({ type: "PRIVATE_MESSAGE", text }));
     }
   });
 
